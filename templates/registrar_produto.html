@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EletroRocha - Pagina de Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <section>
+    <h2>Página de Produto</h2>
+    <form method="post">
+        <div class="formbox">   
+            <label for="nomeProduto">Nome do produto:</label>
+            <input id="nomeProduto" name="nomeProduto" type="text">
+        </div>
+        <div class="formbox">
+            <label for="preco">Preço:</label>
+            <input id="preco" name="preco" type="text">  
+        </div>  
+        <div class="formbox">
+            <label for="data_cadastro">Data de Cadastro</label>
+            <input id="data_cadastro" name="data_cadastro" type="date">
+        </div>
+        <button type="submit">Adicionar Produto</button>
+    </form>
+    
+    {% if dados_produto %}
+        <h2>Dados do Produto Registrados:</h2>
+        <ul>
+            {% for key, value in dados_produto.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+</body>
+</html>

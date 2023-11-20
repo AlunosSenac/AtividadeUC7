@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EletroRocha - Pagina de Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+<section>
+    <h2>Registre-se</h2>
+    <form method="post">
+        <div class="caixa">
+        <div class="formbox">   
+            <label for="usuario">Usuário</label>
+            <input id="usuario" name="usuario" type="text">
+        </div>
+        <div class="formbox">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text">  
+        </div>  
+        <div class="formbox">
+            <label for="genero">Gênero:</label>
+            <select class="form-control" id="genero" name="genero">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+            </select>
+        </div>
+        </div>
+        <div class="caixa">
+        <div class="formbox">
+            <label for="endereco">Endereço</label>
+            <input id="endereco" name="endereco" type="text">
+        </div>
+        <div class="formbox">
+            <label for="data_nascimento">Data de nascimento</label>
+            <input id="data_nascimento" name="data_nascimento" type="date">
+        </div>
+        <div class="formbox">
+            <label for="senha">Senha</label>
+            <input id="senha" name="senha" type="password">
+        </div>
+        </div>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    {% if dados %}
+        <h2>Dados Registrados:</h2>
+        <ul>
+            {% for key, value in dados.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+</body>
+</html>
